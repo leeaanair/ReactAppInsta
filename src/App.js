@@ -4,9 +4,15 @@ import GoalList from './components/GoalList';
 
 const App = () => {
 	
-	return(
-		<GoalList />
+	const courseGoals = [
+	{id : 'cg1', text : 'Finish the Goals'},
+	{id : 'cg2', text : 'Revise'},
+	{id : 'cg3', text : 'Help others'}
+	];
 	
+	return(
+		<GoalList goals={courseGoals}/>	//Merge jsx code with js expression
+		
 	); //React.createElement('h1', {title: 'This works'}, 'Hi! This is React')
 
 }
