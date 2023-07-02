@@ -23,6 +23,7 @@ const GoalList = props => {
 }
 
 
+//As function component
 
 /* const GoalList = () => {
 	
@@ -41,7 +42,7 @@ const GoalList = props => {
 }
  */
  
- 
+// as Class component
 /* class App extends React.Component{
 	
 	render(){
