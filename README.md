@@ -5,6 +5,9 @@ Udemy course on React App for Image posting App.
 #### 2. Routes implementation
 #### 3. Added users page
 #### 4. Navigation header, SideDrawer
+### 5. Places page based on the user id. Modal for map.
 
 ![image](https://github.com/leeaanair/ReactAppInsta/assets/36276816/ec7f04c0-120f-4efc-9aef-fdc2a791d2a9)
+![image](https://github.com/leeaanair/ReactAppInsta/assets/36276816/f12bed74-fda2-4a3d-824d-f476bb53d563)
+
 
