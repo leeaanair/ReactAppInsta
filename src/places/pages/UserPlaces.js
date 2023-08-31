@@ -11,8 +11,8 @@ const DUMMY_PLACES  = [
 		imageUrl : 'https://images.adsttc.com/media/images/5bd9/b552/f197/cc45/e900/00d6/medium_jpg/43914221_363966157680449_595145553531016098_n.jpg?1540994380',
 		address : 'Sardar Sarovar Dam, Statue of Unity Rd, Kevadia, Gujarat 393155',
 		location : {
-			lat : 21.856266,
-			lng : 73.6813503
+			lat : 21.8380184,
+			lng : 73.7190728
 		},
 		creator : '1'
 	},
