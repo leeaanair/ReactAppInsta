@@ -27,19 +27,21 @@ const inputReducer = (state, action) => {
 	}
 };
 
-const  { id, onInput } = props;
-const { value, isValid } = inputState;
-
-
-useEffect(() => {props.onInput(props.id, inputState.value, inputState.isValid)}, [props, inputState]);
 
 const Input = props => {
+
 
 // inputRecuder and current values
 // it returns current state and dispatch which is sent to the inputReducer. dispatch has type and value
 
 	const [inputState, dispatch] = useReducer(inputReducer, {value : '', isValid : false, isTouched : false});
-
+	
+	const  { id, onInput } = props;
+	const { value, isValid } = inputState;
+	
+	
+	useEffect(() => {props.onInput(props.id, inputState.value, inputState.isValid)}, [props, inputState]);
+	
 	const touchHandler = () => {
 
 		dispatch({type : 'TOUCH'})
