@@ -8,6 +8,7 @@ const inputReducer = (state, action) => {
 
 	switch(action.type){
 		case 'CHANGE':
+			console.log("change In input reducer" + JSON.stringify(state));
 			return {
 				...state,
 				value : action.val,
@@ -34,16 +35,19 @@ const Input = props => {
 // inputRecuder and current values
 // it returns current state and dispatch which is sent to the inputReducer. dispatch has type and value
 
-	const [inputState, dispatch] = useReducer(inputReducer, {value : '', isValid : false, isTouched : false});
-	
+	const [inputState, dispatch] = useReducer(inputReducer, {
+		value : props.initialValue || '', 
+		isValid : props.initialValid || false, 
+		isTouched : false
+	});
+
+
 	const  { id, onInput } = props;
 	const { value, isValid } = inputState;
 	
-	
-	useEffect(() => {props.onInput(props.id, inputState.value, inputState.isValid)}, [props, inputState]);
+	useEffect(() => {onInput(id, value, isValid)}, [id, value, isValid, onInput]);
 	
 	const touchHandler = () => {
-
 		dispatch({type : 'TOUCH'})
 
 	};
@@ -56,20 +60,23 @@ const Input = props => {
 
 	const element  = props.element === 'input' ? 
 	
-	(<input 
+	(
+	<input 
 		id={props.id} 
 		type={props.type} 
 		placeholder={props.placeholder} 
 		onChange={changeHandler} 
 		onBlur={touchHandler}
-		value={inputState.value}/>)
+		value={inputState.value}
+		isValid = {inputState.isValid}/>)
 	: 
 	(<textarea 
 		id={props.id} 
 		rows = {props.rows || 3} 
 		onChange={changeHandler}
 		onBlur={touchHandler}
-		value={inputState.value}/>
+		value={inputState.value}
+		isValid = {inputState.isValid}/>
 	);
 	return (
 		<div className={`form-control ${!inputState.isValid && inputState.isTouched && 'form-control--invalid'}`}>
