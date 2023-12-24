@@ -60,7 +60,7 @@ const NewPlace = () => {
         errorText="Please enter a valid address."
         onInput={inputHandler}
       />
-      <Button type="submit" disabled={!formState.isValid}>
+      <Button type="submit" disabled={!formState.formIsValid}>
         ADD PLACE
       </Button>
     </form>

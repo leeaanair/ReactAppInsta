@@ -8,15 +8,20 @@ const formReducer = (state, action) => {
       let formIsValid = true;
       for (const inputId in state.inputs) {
         if (inputId === action.inputId) {
-          // console.log("Action id matches");
-          // console.log("Hence action is : ",action);
+          console.log("Action id matches");
+          console.log("Hence action is : ",action);
           formIsValid = formIsValid && action.isValid;
+          console.log("form validity is ", formIsValid);
+
+          
         } else {
 
-          // console.log("Action is ", action);
-          // console.log("Inside formreducer title is valid? ", state.inputs[inputId].isValid);
-          // console.log("Inside formreducer title is ? ", state.inputs[inputId].value);
+          console.log("Action is ", action);
+          console.log("Inside formreducer title is valid? ", state.inputs[inputId].isValid);
+          console.log("Inside formreducer title is ? ", state.inputs[inputId].value);
           formIsValid = formIsValid && state.inputs[inputId].isValid;
+
+          console.log("form validity is ", formIsValid);
 
         }
       }

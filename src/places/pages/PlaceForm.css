@@ -9,3 +9,8 @@
     background: white;
   }
   
+  .center-content {
+    text-align: center;
+    padding : 1rem;
+    border-radius : 10px;
+  }

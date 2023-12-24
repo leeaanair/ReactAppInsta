@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import Input from '../../shared/components/FormElements/Input';
 import Button from '../../shared/components/FormElements/Button';
+import Card from '../../shared/components/UIElements/Card';
 import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH
@@ -61,33 +62,40 @@ const UpdatePlace = () => {
 
   useEffect(() => {
 
-    setFormData(
-      {
-        title: {
-          value: identifiedPlace.title,
-          isValid: true
+    if(identifiedPlace){
+
+      setFormData(
+        {
+          title: {
+            value: identifiedPlace.title,
+            isValid: true
+          },
+          description: {
+            value: identifiedPlace.description,
+            isValid: true
+          }
         },
-        description: {
-          value: identifiedPlace.description,
-          isValid: true
-        }
-      },
-      false //since we do not want to keep the update button when nothing was changed.
-    );
+        false //since we do not want to keep the update button when nothing was changed.
+      );
+  
+    }
     setIsLoading(false);
   }, [setFormData, identifiedPlace]);
 
+  if (!identifiedPlace) {
+    return (
+      <Card>
+      <div className="center-content">
+        <h2>Could not find place!</h2>
+      </div>
+      </Card>
+    );
+  }
   const placeUpdateSubmitHandler = event => {
     event.preventDefault();
   };
 
-  if (!identifiedPlace) {
-    return (
-      <div className="center">
-        <h2>Could not find place!</h2>
-      </div>
-    );
-  }
+  
 
   if (isLoading) {
     return (
@@ -97,7 +105,6 @@ const UpdatePlace = () => {
     );
   }
 
-  console.log("Formvalid is : ",formState.formIsValid);
 
   return (
     <form className="place-form" onSubmit={placeUpdateSubmitHandler}>
