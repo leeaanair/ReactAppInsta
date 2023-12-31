@@ -8,7 +8,6 @@ const inputReducer = (state, action) => {
 
 	switch(action.type){
 		case 'CHANGE':
-			console.log("change In input reducer" + JSON.stringify(state));
 			return {
 				...state,
 				value : action.val,
@@ -58,8 +57,8 @@ const Input = props => {
 
 	};
 
-	const element  = props.element === 'input' ? 
-	
+
+	const element  = props.element === 'input' ? 	
 	(
 	<input 
 		id={props.id} 
@@ -78,6 +77,7 @@ const Input = props => {
 		value={inputState.value}
 		/>
 	);
+
 	return (
 		<div className={`form-control ${!inputState.isValid && inputState.isTouched && 'form-control--invalid'}`}>
 			<label htmlFor={props.id}>{props.label}</label>

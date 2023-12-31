@@ -6,22 +6,22 @@ const formReducer = (state, action) => {
   switch (action.type) {
     case 'INPUT_CHANGE':
       let formIsValid = true;
+
+
       for (const inputId in state.inputs) {
+
+        if(!state.inputs[inputId]){
+          continue;
+        } //this if condition is kept when 'name' of sign-up is still considered in login page. there 
+        //name is undefined, hence the below lines given an error. hence we continue, incase it's not found.
+
         if (inputId === action.inputId) {
-          console.log("Action id matches");
-          console.log("Hence action is : ",action);
           formIsValid = formIsValid && action.isValid;
-          console.log("form validity is ", formIsValid);
 
           
         } else {
 
-          console.log("Action is ", action);
-          console.log("Inside formreducer title is valid? ", state.inputs[inputId].isValid);
-          console.log("Inside formreducer title is ? ", state.inputs[inputId].value);
           formIsValid = formIsValid && state.inputs[inputId].isValid;
-
-          console.log("form validity is ", formIsValid);
 
         }
       }
